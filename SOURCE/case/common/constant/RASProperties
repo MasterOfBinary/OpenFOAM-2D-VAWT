@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  3.0.1                                 |
+|  \\    /   O peration     | Version:  %%OPENFOAM_VERSION%%                                 |
 |   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -10,22 +10,16 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
-    location    "system";
-    object      decomposeParDict;
+    location    "constant";
+    object      RASProperties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-//- Force AMI to be on single processor. Can cause imbalance with some
-//  decomposers.
-//singleProcessorFaceSets ((AMI -1));
+RASModel        SpalartAllmaras;
 
-numberOfSubdomains 4;
+turbulence      on;
 
-method          scotch;
-
-distributed     no;
-
-roots           ( );
+printCoeffs     on;
 
 
 // ************************************************************************* //
