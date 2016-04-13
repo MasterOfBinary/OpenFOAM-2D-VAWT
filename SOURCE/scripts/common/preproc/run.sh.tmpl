@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Get the output directory from FOAMkit
+outdir=$1
+
+# Source tools
+. %%FOAMKIT_DIR%%/scripts/runtools.sh
+
+# Just check the mesh
+runApplication checkMesh $outdir
+
+cat $outdir/log.checkMesh | grep "Mesh OK."
+if [ $? -ne 0 ]; then
+  echo "Mesh may be bad, check logs."
+fi
+

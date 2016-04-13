@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Get the output directory from FOAMkit
+outdir=$1
+
+# If this is a continue, then some stuff won't be done
+continue=$2
+
+# Source bashrc
+. %%OPENFOAM_DIR%%/etc/bashrc
+
+# Source tools
+. %%FOAMKIT_DIR%%/scripts/runtools.sh
+
+# Get number of processors
+nProc=%%NUM_PROCS%%
+
+if [ "$continue" == "0" ]; then
+  # Decompose the case so it can be run in parallel
+  runApplication decomposePar $outdir
+fi
+
+# Get the application to use to run it and then do so
+appl=$(getApplication)
+runParallel $appl $outdir $nProc
+
+# Reconstruct everything
+runApplication reconstructPar $outdir
+
+# Everything else is left to the post-processor

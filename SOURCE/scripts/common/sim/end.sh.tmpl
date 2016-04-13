@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Get the output directory from FOAMkit
+outdir=$1
+
+# Source bashrc
+. %%OPENFOAM_DIR%%/etc/bashrc
+
+# Source tools
+. %%FOAMKIT_DIR%%/scripts/runtools.sh
+
+# End the application
+appl=$(getApplication)
+endApplication $appl
