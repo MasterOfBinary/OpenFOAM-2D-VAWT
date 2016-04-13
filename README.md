@@ -1,11 +1,14 @@
 # OpenFOAM 2D VAWT Simulation
-This is a complete OpenFOAM case for simulating the flow through a rotating high solidity vertical axis wind turbine.
-
-It was modified by Vaughn Friesen as a demonstration of [FOAMkit](https://github.com/MasterOfBinary/foamkit).
+This is a complete OpenFOAM case for simulating the flow through a rotating high solidity vertical axis wind turbine. It was modified by Vaughn Friesen as a demonstration of FOAMkit.
 
 ## Running
 
-To run the case, download FOAMkit and follow its instructions for sourcing the `foamkitenv.sh` file. Then, from the `OpenFOAM-2D-VAWT` directory, run `foamkit`. Perform steps 1-4 (setup), 10 (pre-processing) and 20-21 (running simulation). To monitor the status, start a new instance of `foamkit` (don't ctrl-C the one that's running the simulation! run it in screen or something) and run step 22 (monitor).
+1. Download [FOAMkit](https://github.com/MasterOfBinary/foamkit) and follow its instructions for sourcing the `foamkitenv.sh` file.
+2. From the `OpenFOAM-2D-VAWT` directory, run `foamkit` (preferably in `screen`).
+3. Perform steps 1-4 (setup), 10 (pre-processing) and 20-21 (running simulation).
+4. To monitor the status, start a new instance of `foamkit` (don't ctrl-C the one that's running the simulation!) and run step 22 (monitor). To end the simulation, run step 23 (it can be restarted using step 24).
+
+Post-processing has not yet been implemented for this case.
 
 ## Notes
 
